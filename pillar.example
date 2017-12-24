@@ -1,0 +1,29 @@
+distcc:
+  lookup:
+    pkg: distcc
+    config_hosts: '/etc/distcc/hosts'
+    config_server: '/etc/default/distcc'
+    service:
+      name: distcc
+  hosts:
+    - zeroconf
+    - 192.168.0.123
+  server:
+    compiler_pkgs:
+      - gcc-6
+      - g++-6
+    compiler_symlinks:
+      - name: /usr/bin/x86_64-pc-linux-gnu-gcc
+        target: /usr/bin/x86_64-linux-gnu-gcc-6
+      - name: /usr/bin/gcc
+        target: /usr/bin/x86_64-linux-gnu-gcc-6
+      - name: /usr/bin/x86_64-pc-linux-gnu-g++
+        target: /usr/bin/x86_64-linux-gnu-g++-6
+      - name: /usr/bin/g++
+        target: /usr/bin/x86_64-linux-gnu-g++-6
+    allowed_nets:
+      - 127.0.0.1/16
+    listener: 127.0.0.1
+    nice: 10
+    jobs: 10
+    zeroconf: False

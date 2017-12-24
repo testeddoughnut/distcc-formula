@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+distcc:
+  pkg: distcc
+  config_hosts: '/etc/distcc/hosts'
+  config_server: '/etc/default/distcc'
+  service:
+    name: distcc
+  hosts:
+    - "+zeroconf"
+  server:
+    compiler_pkgs: null
+    compiler_symlinks: null
+    enabled: "true"
+    allowed_nets: 127.0.0.1
+    listener: 127.0.0.1
+    nice: 10
+    jobs: ""
+    zeroconf: "false"
